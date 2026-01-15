@@ -38,24 +38,24 @@ export default function RootLayout({
   children: React.ReactNode
 }>) {
   return (
-    <html lang="en" suppressHydrationWarning>
+    <html lang="en" suppressHydrationWarning className="dark">
       <head>
-        <meta name="theme-color" content="#1a1a1a" />
+        <meta name="theme-color" content="#1a1a1a" media="(prefers-color-scheme: dark)" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no" />
-        <script>
-          {`
-            try {
-              if (localStorage.theme === 'dark' || (!('theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
-                document.documentElement.classList.add('dark')
-              } else {
-                document.documentElement.classList.remove('dark')
-              }
-            } catch (e) {}
-          `}
-        </script>
+        <script
+          dangerouslySetInnerHTML={{
+            __html: `
+              try {
+                // Always start in dark mode
+                document.documentElement.classList.add('dark');
+                localStorage.setItem('theme', 'dark');
+              } catch (e) {}
+            `,
+          }}
+        />
       </head>
       <body className={`font-sans antialiased bg-background text-foreground`}>
-        <ThemeProvider attribute="class" defaultTheme="system" enableSystem disableTransitionOnChange={false}>
+        <ThemeProvider attribute="class" defaultTheme="dark" enableSystem={false} disableTransitionOnChange={false}>
           {children}
         </ThemeProvider>
         <Analytics />
