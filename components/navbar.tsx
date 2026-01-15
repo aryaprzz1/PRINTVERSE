@@ -9,14 +9,14 @@ import { useRouter, usePathname } from "next/navigation"
 
 export function Navbar() {
   const [isOpen, setIsOpen] = useState(false)
-  const [isDark, setIsDark] = useState(true)
+  const [isDark, setIsDark] = useState(false)
   const router = useRouter()
   const pathname = usePathname()
 
   useEffect(() => {
     const checkTheme = () => {
-      const isDarkMode = document.documentElement.classList.contains("dark")
-      setIsDark(isDarkMode)
+    const isDarkMode = document.documentElement.classList.contains("dark")
+    setIsDark(isDarkMode)
     }
     checkTheme()
     

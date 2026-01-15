@@ -8,34 +8,10 @@ import { ArrowRight } from "lucide-react"
 export default function Services() {
   const services = [
     {
-      id: "banners",
-      title: "Banners",
-      icon: "🎨",
-      description: "High-quality banner printing for all your promotional needs",
-    },
-    {
-      id: "binding",
-      title: "Binding",
-      icon: "📎",
-      description: "Professional binding services for documents and booklets",
-    },
-    {
-      id: "brochure",
+      id: "brochure-printing",
       title: "Brochure Printing",
       icon: "📑",
       description: "Eye-catching brochures for your business marketing",
-    },
-    {
-      id: "business-card",
-      title: "Business Card Printing",
-      icon: "🎫",
-      description: "Professional business cards that make an impression",
-    },
-    {
-      id: "business-doc",
-      title: "Business Document Printing",
-      icon: "📄",
-      description: "Complete business document printing solutions",
     },
     {
       id: "calendars",
@@ -44,34 +20,46 @@ export default function Services() {
       description: "Custom calendar printing for offices and gifts",
     },
     {
-      id: "colour-printing",
-      title: "Colour Printing",
+      id: "color-printing",
+      title: "Color Printing",
       icon: "🌈",
       description: "Vibrant full-color printing for maximum impact",
     },
     {
-      id: "custom",
+      id: "custom-printing",
       title: "Custom Printing",
       icon: "🎯",
       description: "Tailored printing solutions for your unique needs",
     },
     {
-      id: "digital",
+      id: "digital-printing",
       title: "Digital Printing",
       icon: "💻",
       description: "Fast and efficient digital printing technology",
     },
     {
       id: "letterhead",
-      title: "Letterhead & Business Cards",
+      title: "Letterhead",
       icon: "✉️",
-      description: "Professional letterhead and business card sets",
+      description: "Professional letterhead printing services",
     },
     {
-      id: "magazines",
-      title: "Magazines",
+      id: "magazine",
+      title: "Magazine",
       icon: "📰",
       description: "Magazine and publication printing services",
+    },
+    {
+      id: "banners",
+      title: "Banners",
+      icon: "🎨",
+      description: "High-quality banner printing for all your promotional needs",
+    },
+    {
+      id: "binding-services",
+      title: "Binding Services",
+      icon: "📎",
+      description: "Professional binding services for documents and booklets",
     },
     {
       id: "posters",
@@ -86,15 +74,15 @@ export default function Services() {
       description: "Secure identity card printing with advanced features",
     },
     {
-      id: "lanyards",
-      title: "Lanyards",
+      id: "lanyard",
+      title: "Lanyard",
       icon: "🎟️",
       description: "Custom printed lanyards for badges and IDs",
     },
   ]
 
   return (
-    <main className="min-h-screen bg-gradient-to-b from-background via-background to-secondary">
+    <main className="min-h-screen bg-background">
       <Navbar />
 
       {/* Header */}
@@ -118,7 +106,7 @@ export default function Services() {
               <div
                 key={service.id}
                 id={service.id}
-                className="bg-card border border-border rounded-xl overflow-hidden hover:border-primary transition-all duration-300 group animate-fade-in-up hover:shadow-lg hover:shadow-primary/10 hover-lift"
+                className="bg-card border border-border rounded-xl overflow-hidden hover:border-primary transition-all duration-300 group hover:shadow-lg hover:shadow-primary/10"
               >
                 <div className="bg-gradient-to-r from-primary/20 to-primary/5 p-6 border-b border-border">
                   <div className="text-5xl mb-3">{service.icon}</div>
@@ -158,7 +146,7 @@ export default function Services() {
               },
               {
                 title: "Premium Quality",
-                desc: "ISO certified processes",
+                desc: "Professional printing processes",
               },
               {
                 title: "Custom Solutions",

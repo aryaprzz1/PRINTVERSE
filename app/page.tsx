@@ -10,7 +10,7 @@ import { ArrowRight, Zap, Settings, Award, Users, Shield, Cpu, Gauge } from "luc
 
 export default function Home() {
   return (
-    <main className="min-h-screen bg-gradient-to-b from-background via-background to-secondary">
+    <main className="min-h-screen bg-background">
       <Navbar />
       <WhatsappPopup />
 
@@ -108,7 +108,7 @@ export default function Home() {
               {
                 icon: Award,
                 title: "Premium Quality",
-                description: "ISO certified processes ensure every print meets international quality standards.",
+                description: "Professional processes ensure every print meets high quality standards.",
               },
               {
                 icon: Settings,
@@ -140,22 +140,25 @@ export default function Home() {
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-12">
             {[
               {
-                title: "ID Cards",
-                description: "Professional ID cards with advanced security features",
-                icon: "🎫",
+                title: "Brochure Printing",
+                description: "Eye-catching brochures for your business marketing",
+                icon: "📑",
+                id: "brochure-printing",
               },
               {
                 title: "Banners",
-                description: "Eye-catching banners for events and promotions",
+                description: "High-quality banner printing for all your promotional needs",
                 icon: "🎨",
+                id: "banners",
               },
               {
-                title: "Documents",
-                description: "High-quality pages and document printing",
-                icon: "📄",
+                title: "Identity Cards",
+                description: "Secure identity card printing with advanced features",
+                icon: "🆔",
+                id: "identity-cards",
               },
             ].map((service, i) => (
-              <Link key={i} href={`/services#${service.title.toLowerCase().replace(" ", "-")}`} className="group">
+              <Link key={i} href={`/services#${service.id}`} className="group">
                 <div className="bg-card rounded-xl p-8 border border-border hover:border-primary transition-all duration-300 h-full hover:shadow-lg hover:shadow-primary/20 hover-lift">
                   <div className="text-5xl mb-4">{service.icon}</div>
                   <h3 className="text-2xl font-bold mb-2 group-hover:text-primary transition-colors">
@@ -220,9 +223,15 @@ export default function Home() {
                   <p className="text-sm text-muted-foreground">Happy Clients</p>
                 </div>
                 <div>
-                  <p className="text-3xl font-bold text-primary">ISO</p>
-                  <p className="text-sm text-muted-foreground">Certified</p>
+                  <p className="text-3xl font-bold text-primary">24h</p>
+                  <p className="text-sm text-muted-foreground">Quick Turnaround</p>
                 </div>
+              </div>
+
+              <div className="mt-6 p-4 bg-card border border-border rounded-lg">
+                <p className="text-sm text-muted-foreground">
+                  <span className="font-semibold">GSTIN:</span> 27ABHFP1115D1ZO
+                </p>
               </div>
 
               <Link

@@ -11,8 +11,11 @@ export function Footer() {
           {/* About */}
           <div>
             <h3 className="text-lg font-bold mb-4">PRINTVERSE</h3>
-            <p className="text-sm text-muted-foreground">
+            <p className="text-sm text-muted-foreground mb-4">
               Premium printing solutions. 28+ years of collective expertise in quality printing.
+            </p>
+            <p className="text-xs text-muted-foreground">
+              <span className="font-semibold">GSTIN:</span> 27ABHFP1115D1ZO
             </p>
           </div>
 
@@ -58,12 +61,12 @@ export function Footer() {
                 </Link>
               </li>
               <li>
-                <Link href="/services#binding" className="hover:text-primary transition-colors">
-                  Binding
+                <Link href="/services#binding-services" className="hover:text-primary transition-colors">
+                  Binding Services
                 </Link>
               </li>
               <li>
-                <Link href="/services#custom" className="hover:text-primary transition-colors">
+                <Link href="/services#custom-printing" className="hover:text-primary transition-colors">
                   Custom Printing
                 </Link>
               </li>
@@ -81,13 +84,24 @@ export function Footer() {
               </li>
               <li className="flex items-center gap-2">
                 <Phone size={16} className="text-primary" />
+                <a href="tel:8928633685" className="hover:text-primary transition-colors">
+                  8928633685
+                </a>
+              </li>
+              <li className="flex items-center gap-2">
+                <Phone size={16} className="text-primary" />
                 <a href="tel:9004290668" className="hover:text-primary transition-colors">
                   9004290668
                 </a>
               </li>
               <li className="flex items-center gap-2">
                 <Mail size={16} className="text-primary" />
-                <a href="mailto:printversemumbai@gmail.com" className="hover:text-primary transition-colors">
+                <a
+                  href="https://mail.google.com/mail/?view=cm&fs=1&to=printversemumbai@gmail.com"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="hover:text-primary transition-colors"
+                >
                   printversemumbai@gmail.com
                 </a>
               </li>
@@ -95,9 +109,9 @@ export function Footer() {
           </div>
         </div>
 
-        {/* Social Links */}
-        <div className="border-t border-border pt-8 flex flex-col md:flex-row justify-between items-center">
-          <div className="flex gap-4 mb-4 md:mb-0">
+        {/* Social Links & Copyright */}
+        <div className="border-t border-border pt-8 flex flex-col md:flex-row justify-between items-center gap-4">
+          <div className="flex gap-4">
             <a
               href="https://www.linkedin.com/company/printversemumbai/"
               target="_blank"
@@ -108,9 +122,14 @@ export function Footer() {
               <Linkedin size={20} />
             </a>
           </div>
-          <p className="text-xs text-muted-foreground">
-            © 2025 PRINTVERSE. All rights reserved. | Website: printversemumbai.com
-          </p>
+          <div className="text-center md:text-right">
+            <p className="text-xs text-muted-foreground mb-1">
+              © 2025 PRINTVERSE. All rights reserved.
+            </p>
+            <p className="text-xs text-muted-foreground">
+              GSTIN: 27ABHFP1115D1ZO | Website: printversemumbai.com
+            </p>
+          </div>
         </div>
       </div>
     </footer>

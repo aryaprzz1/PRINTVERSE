@@ -38,24 +38,24 @@ export default function RootLayout({
   children: React.ReactNode
 }>) {
   return (
-    <html lang="en" suppressHydrationWarning className="dark">
+    <html lang="en" suppressHydrationWarning>
       <head>
-        <meta name="theme-color" content="#1a1a1a" media="(prefers-color-scheme: dark)" />
+        <meta name="theme-color" content="#ffffff" media="(prefers-color-scheme: light)" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no" />
         <script
           dangerouslySetInnerHTML={{
             __html: `
               try {
-                // Always start in dark mode
-                document.documentElement.classList.add('dark');
-                localStorage.setItem('theme', 'dark');
+                // Always start in light mode
+                document.documentElement.classList.remove('dark');
+                localStorage.setItem('theme', 'light');
               } catch (e) {}
             `,
           }}
         />
       </head>
       <body className={`font-sans antialiased bg-background text-foreground`}>
-        <ThemeProvider attribute="class" defaultTheme="dark" enableSystem={false} disableTransitionOnChange={false}>
+        <ThemeProvider attribute="class" defaultTheme="light" enableSystem={false} disableTransitionOnChange={false}>
           {children}
         </ThemeProvider>
         <Analytics />

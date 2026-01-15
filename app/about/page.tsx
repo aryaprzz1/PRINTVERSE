@@ -30,12 +30,11 @@ export default function About() {
     { year: "2004", event: "Expanded to modern facility" },
     { year: "2008", event: "Installed first digital color press" },
     { year: "2012", event: "Launched ID card printing services" },
-    { year: "2016", event: "Achieved ISO 9001:2015 certification" },
     { year: "2025", event: "Launched PRINTVERSE - Digital identity" },
   ]
 
   return (
-    <main className="min-h-screen bg-gradient-to-b from-background via-background to-secondary">
+    <main className="min-h-screen bg-background">
       <Navbar />
       <WhatsappPopup />
 
@@ -82,9 +81,15 @@ export default function About() {
                   <p className="text-sm text-muted-foreground">Happy Clients</p>
                 </div>
                 <div>
-                  <p className="text-3xl font-bold text-primary">ISO</p>
-                  <p className="text-sm text-muted-foreground">Certified</p>
+                  <p className="text-3xl font-bold text-primary">24h</p>
+                  <p className="text-sm text-muted-foreground">Quick Turnaround</p>
                 </div>
+              </div>
+              
+              <div className="mt-6 p-4 bg-card border border-border rounded-lg">
+                <p className="text-sm text-muted-foreground">
+                  <span className="font-semibold">GSTIN:</span> 27ABHFP1115D1ZO
+                </p>
               </div>
             </div>
 
@@ -162,34 +167,28 @@ export default function About() {
         <div className="max-w-7xl mx-auto">
           <h2 className="text-4xl font-bold mb-12 text-center">Our Equipment & Machines</h2>
 
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            {machines.map((machine, i) => (
-              <div
-                key={i}
-                className="bg-card border border-border rounded-xl overflow-hidden hover:border-primary transition-all duration-300 group animate-fade-in-up hover:shadow-lg hover:shadow-primary/10 hover-lift"
-              >
-                <div className="bg-gradient-to-r from-primary/20 to-primary/5 relative overflow-hidden h-48">
-                  <Image
-                    src={machine.image || "/placeholder.svg"}
-                    alt={machine.name}
-                    fill
-                    objectFit="cover"
-                    className="group-hover:scale-105 transition-transform duration-300"
-                  />
+          <div className="overflow-x-auto pb-4">
+            <div className="flex gap-6 min-w-max">
+              {machines.map((machine, i) => (
+                <div
+                  key={i}
+                  className="bg-card border border-border rounded-xl overflow-hidden hover:border-primary transition-all duration-300 group flex-shrink-0 w-64 hover:shadow-lg hover:shadow-primary/10"
+                >
+                  <div className="bg-gradient-to-r from-primary/20 to-primary/5 relative overflow-hidden h-48">
+                    <Image
+                      src={machine.image || "/placeholder.svg"}
+                      alt={machine.name}
+                      fill
+                      objectFit="cover"
+                      className="group-hover:scale-105 transition-transform duration-300"
+                    />
+                  </div>
+                  <div className="p-6 text-center">
+                    <h3 className="text-lg font-bold group-hover:text-primary transition-colors">{machine.name}</h3>
+                  </div>
                 </div>
-                <div className="p-6">
-                  <h3 className="text-xl font-bold mb-4 group-hover:text-primary transition-colors">{machine.name}</h3>
-                  <ul className="space-y-2">
-                    {machine.specs.map((spec, j) => (
-                      <li key={j} className="text-sm text-muted-foreground flex items-start gap-2">
-                        <span className="text-primary mt-1">•</span>
-                        {spec}
-                      </li>
-                    ))}
-                  </ul>
-                </div>
-              </div>
-            ))}
+              ))}
+            </div>
           </div>
         </div>
       </section>
@@ -248,6 +247,9 @@ export default function About() {
                       <a href="tel:9892397770" className="text-primary hover:underline font-mono block">
                         9892397770
                       </a>
+                      <a href="tel:8928633685" className="text-primary hover:underline font-mono block">
+                        8928633685
+                      </a>
                       <a href="tel:9004290668" className="text-primary hover:underline font-mono block">
                         9004290668
                       </a>
@@ -259,7 +261,12 @@ export default function About() {
                   <Mail className="text-primary flex-shrink-0" size={24} />
                   <div>
                     <p className="font-semibold mb-1">Email</p>
-                    <a href="mailto:printversemumbai@gmail.com" className="text-primary hover:underline">
+                    <a
+                      href="https://mail.google.com/mail/?view=cm&fs=1&to=printversemumbai@gmail.com"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="text-primary hover:underline"
+                    >
                       printversemumbai@gmail.com
                     </a>
                   </div>
@@ -288,24 +295,21 @@ export default function About() {
                 referrerPolicy="no-referrer-when-downgrade"
               />
             </div>
+            
+            <div className="mt-4 text-center">
+              <a
+                href="https://maps.app.goo.gl/U1vruJa9RAmwXUby9?g_st=aw"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-block px-6 py-2 border-2 border-primary text-primary rounded-lg hover:bg-primary hover:text-primary-foreground transition-all font-semibold"
+              >
+                View on Google Maps
+              </a>
+            </div>
           </div>
         </div>
       </section>
 
-      {/* Certifications */}
-      <section className="py-20 px-4 sm:px-6 lg:px-8 bg-gradient-to-r from-primary/20 to-primary/10 border-y border-border">
-        <div className="max-w-7xl mx-auto text-center">
-          <h2 className="text-4xl font-bold mb-12">Certifications & Standards</h2>
-
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
-            {["ISO 9001:2015", "ISO 27001", "RoHS Compliant", "GDPR Ready"].map((cert, i) => (
-              <div key={i} className="bg-card border-2 border-primary rounded-lg p-6">
-                <p className="text-lg font-bold text-primary">{cert}</p>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
 
       <Footer />
     </main>
