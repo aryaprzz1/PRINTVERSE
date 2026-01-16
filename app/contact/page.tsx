@@ -158,6 +158,8 @@ export default function Contact() {
                   <option value="Posters">Posters</option>
                   <option value="Identity Cards">Identity Cards</option>
                   <option value="Lanyard">Lanyard</option>
+                  <option value="Lamination">Lamination</option>
+                  <option value="Punching">Punching</option>
                 </select>
                 {errors.service && <p className="text-red-500 text-sm mt-1">{errors.service}</p>}
               </div>

@@ -223,23 +223,35 @@
 
 /* Custom scrollbar for machines section */
 @layer utilities {
-  .overflow-x-auto::-webkit-scrollbar {
-    height: 8px;
+  .scrollbar-hide {
+    -ms-overflow-style: none;
+    scrollbar-width: thin;
   }
   
-  .overflow-x-auto::-webkit-scrollbar-track {
+  .scrollbar-hide::-webkit-scrollbar {
+    height: 10px;
+  }
+  
+  .scrollbar-hide::-webkit-scrollbar-track {
     background: var(--secondary);
-    border-radius: 4px;
+    border-radius: 10px;
+    margin: 0 20px;
   }
   
-  .overflow-x-auto::-webkit-scrollbar-thumb {
+  .scrollbar-hide::-webkit-scrollbar-thumb {
     background: var(--primary);
-    border-radius: 4px;
+    border-radius: 10px;
+    border: 2px solid var(--secondary);
   }
   
-  .overflow-x-auto::-webkit-scrollbar-thumb:hover {
+  .scrollbar-hide::-webkit-scrollbar-thumb:hover {
     background: var(--primary);
-    opacity: 0.8;
+    opacity: 0.9;
+  }
+  
+  /* Smooth scrolling */
+  .scroll-smooth {
+    scroll-behavior: smooth;
   }
 }
 

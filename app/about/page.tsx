@@ -5,30 +5,73 @@ import { Footer } from "@/components/footer"
 import { WhatsappPopup } from "@/components/whatsapp-popup"
 import { Award, Zap, Shield, Cpu, Gauge, Users, MapPin, Phone, Mail } from "lucide-react"
 import Image from "next/image"
+import { useState } from "react"
 
 export default function About() {
+  const [mutedVideos, setMutedVideos] = useState<{ [key: string]: boolean }>({
+    video1: true,
+    video2: true,
+    video3: true,
+  })
+
+  const toggleMute = (videoId: string) => {
+    setMutedVideos((prev) => ({
+      ...prev,
+      [videoId]: !prev[videoId],
+    }))
+  }
+
   const machines = [
     {
-      name: "Lithrone 28 Printing Machine",
+      name: "Komori Lithrone 428 20x28 Feeder",
       specs: ["Advanced printing capabilities", "Professional color accuracy", "High-volume production"],
       image: "/machines/m1.png",
     },
     {
-      name: "KOWA Digital Printing System",
+      name: "Komori Lithrone 428 20x28 Delivery",
       specs: ["Digital printing technology", "Fast turnaround", "Precision output"],
       image: "/machines/m2.png",
     },
     {
-      name: "Industrial Laminating Machine",
+      name: "Hidelberg 25.5 x 36 Single Colour",
       specs: ["Professional lamination", "Premium finishing", "Durability enhancement"],
       image: "/machines/m3.png",
+    },
+  ]
+
+  const videos = [
+    {
+      id: "video1",
+      name: "Cutting Process ",
+      src: "/videos/video landacape2.mp4",
+    },
+    {
+      id: "video2",
+      name: "Printing Process single color machine",
+      src: "/videos/video lanscape1.mp4",
+    },
+    {
+      id: "video3",
+      name: "Printing Process 4-color machine",
+      src: "/videos/video potrait.mp4",
+    },
+  ]
+
+  const sampleWork = [
+    {
+      name: "Sample Work",
+      image: "/sample work.jpeg",
+    },
+    {
+      name: "Paper Storage",
+      image: "/boxes.jpeg",
     },
   ]
 
   const milestones = [
     { year: "1997", event: "Original printing press established" },
     { year: "2004", event: "Expanded to modern facility" },
-    { year: "2008", event: "Installed first digital color press" },
+    { year: "2008", event: "Installed first Xerox Offset printing machine" },
     { year: "2012", event: "Launched ID card printing services" },
     { year: "2025", event: "Launched PRINTVERSE - Digital identity" },
   ]
@@ -45,7 +88,7 @@ export default function About() {
             About <span className="text-primary">PRINTVERSE</span>
           </h1>
           <p className="text-xl text-muted-foreground max-w-3xl">
-            Premium printing solutions with 28+ years of collective expertise in the industry
+            Premium printing solutions with 25+ years of collective expertise in the industry
           </p>
         </div>
       </section>
@@ -58,7 +101,7 @@ export default function About() {
               <h2 className="text-4xl font-bold mb-6">Our Story</h2>
               <p className="text-lg text-muted-foreground mb-4 leading-relaxed">
                 At Printverse, we blend fresh ideas with decades of expertise. Though founded in 2025, our team brings
-                over 28 years of collective experience in the printing industry, ensuring top-quality results you can
+                over 25 years of collective experience in the printing industry, ensuring top-quality results you can
                 trust.
               </p>
               <p className="text-lg text-muted-foreground mb-4 leading-relaxed">
@@ -73,16 +116,16 @@ export default function About() {
 
               <div className="grid grid-cols-3 gap-6 mt-8">
                 <div>
-                  <p className="text-3xl font-bold text-primary">28+</p>
+                  <p className="text-3xl font-bold text-primary">25+</p>
                   <p className="text-sm text-muted-foreground">Years Experience</p>
                 </div>
                 <div>
-                  <p className="text-3xl font-bold text-primary">500+</p>
+                  <p className="text-3xl font-bold text-primary">300+</p>
                   <p className="text-sm text-muted-foreground">Happy Clients</p>
                 </div>
                 <div>
-                  <p className="text-3xl font-bold text-primary">24h</p>
-                  <p className="text-sm text-muted-foreground">Quick Turnaround</p>
+                  <p className="text-3xl font-bold text-primary">24/7</p>
+                  <p className="text-sm text-muted-foreground">For Request</p>
                 </div>
               </div>
               
@@ -98,7 +141,7 @@ export default function About() {
                 <div className="absolute inset-0 bg-gradient-to-r from-primary to-primary/50 rounded-2xl blur-2xl opacity-30 group-hover:opacity-50 transition-opacity" />
                 <div className="relative bg-gradient-to-br from-card to-secondary rounded-2xl p-8 border border-border overflow-hidden">
                   <Image
-                    src="/logo.png"
+                    src="/newlogo.png"
                     alt="PRINTVERSE Logo"
                     width={400}
                     height={400}
@@ -112,42 +155,42 @@ export default function About() {
       </section>
 
       {/* Values */}
-      <section className="py-20 px-4 sm:px-6 lg:px-8 bg-card/50 border-y border-border">
+      {/* <section className="py-20 px-4 sm:px-6 lg:px-8 bg-card/50 border-y border-border">
         <div className="max-w-7xl mx-auto">
           <h2 className="text-4xl font-bold mb-12 text-center">Our Core Values</h2>
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             {[
-              {
-                icon: Award,
-                title: "Quality Excellence",
-                description: "Every print meets international quality standards with zero compromise",
-              },
-              {
-                icon: Users,
-                title: "Customer Focus",
-                description: "Your satisfaction is our priority - customized solutions for every need",
-              },
-              {
-                icon: Zap,
-                title: "Innovation",
-                description: "Constantly adopting latest technology and printing techniques",
-              },
-              {
-                icon: Shield,
-                title: "Reliability",
-                description: "24-hour turnaround guaranteed with consistent quality delivery",
-              },
-              {
-                icon: Cpu,
-                title: "Expertise",
-                description: "28+ years of printing experience backed by skilled professionals",
-              },
-              {
-                icon: Gauge,
-                title: "Precision",
-                description: "Attention to detail in every aspect of production and delivery",
-              },
+              // {
+              //   icon: Award,
+              //   title: "Quality Excellence",
+              //   description: "Every print meets international quality standards with zero compromise",
+              // },
+              // {
+              //   icon: Users,
+              //   title: "Customer Focus",
+              //   description: "Your satisfaction is our priority - customized solutions for every need",
+              // },
+              // {
+              //   icon: Zap,
+              //   title: "Innovation",
+              //   description: "Constantly adopting latest technology and printing techniques",
+              // },
+              // {
+              //   icon: Shield,
+              //   title: "Reliability",
+              //   description: "24-hour turnaround guaranteed with consistent quality delivery",
+              // },
+              // {
+              //   icon: Cpu,
+              //   title: "Expertise",
+              //   description: "25+ years of printing experience backed by skilled professionals",
+              // },
+              // {
+              //   icon: Gauge,
+              //   title: "Precision",
+              //   description: "Attention to detail in every aspect of production and delivery",
+              // },
             ].map((value, i) => (
               <div
                 key={i}
@@ -160,34 +203,141 @@ export default function About() {
             ))}
           </div>
         </div>
-      </section>
+      </section> */}
 
       {/* Machines & Equipment */}
       <section className="py-20 px-4 sm:px-6 lg:px-8">
         <div className="max-w-7xl mx-auto">
           <h2 className="text-4xl font-bold mb-12 text-center">Our Equipment & Machines</h2>
 
-          <div className="overflow-x-auto pb-4">
-            <div className="flex gap-6 min-w-max">
-              {machines.map((machine, i) => (
-                <div
-                  key={i}
-                  className="bg-card border border-border rounded-xl overflow-hidden hover:border-primary transition-all duration-300 group flex-shrink-0 w-64 hover:shadow-lg hover:shadow-primary/10"
-                >
-                  <div className="bg-gradient-to-r from-primary/20 to-primary/5 relative overflow-hidden h-48">
-                    <Image
-                      src={machine.image || "/placeholder.svg"}
-                      alt={machine.name}
-                      fill
-                      objectFit="cover"
-                      className="group-hover:scale-105 transition-transform duration-300"
-                    />
+          <div className="relative">
+            <div className="overflow-x-auto pb-4 scrollbar-hide scroll-smooth" style={{ scrollbarWidth: 'thin' }}>
+              <div className="flex gap-6 min-w-max px-2">
+                {/* Machine Images */}
+                {machines.map((machine, i) => (
+                  <div
+                    key={i}
+                    className="bg-card border border-border rounded-xl overflow-hidden hover:border-primary transition-all duration-300 group flex-shrink-0 w-72 hover:shadow-lg hover:shadow-primary/10"
+                  >
+                    <div className="relative overflow-hidden h-64 bg-gradient-to-r from-primary/10 to-primary/5">
+                      <Image
+                        src={machine.image || "/placeholder.svg"}
+                        alt={machine.name}
+                        fill
+                        style={{ objectFit: "cover" }}
+                        className="group-hover:scale-105 transition-transform duration-300"
+                      />
+                    </div>
+                    <div className="p-6 text-center">
+                      <h3 className="text-lg font-bold group-hover:text-primary transition-colors">{machine.name}</h3>
+                    </div>
                   </div>
-                  <div className="p-6 text-center">
-                    <h3 className="text-lg font-bold group-hover:text-primary transition-colors">{machine.name}</h3>
+                ))}
+
+                {/* Videos */}
+                {videos.map((video) => (
+                  <div
+                    key={video.id}
+                    className="bg-card border border-border rounded-xl overflow-hidden hover:border-primary transition-all duration-300 group flex-shrink-0 w-72 hover:shadow-lg hover:shadow-primary/10"
+                  >
+                    <div className="relative overflow-hidden h-64 bg-gradient-to-r from-primary/10 to-primary/5">
+                      <video
+                        src={video.src}
+                        muted={mutedVideos[video.id]}
+                        loop
+                        playsInline
+                        autoPlay
+                        preload="auto"
+                        className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
+                        onClick={() => toggleMute(video.id)}
+                        onError={(e) => {
+                          console.error("Video load error:", video.src, e)
+                        }}
+                        onLoadedData={() => {
+                          console.log("Video loaded:", video.src)
+                        }}
+                        style={{ display: "block" }}
+                      />
+                      <button
+                        onClick={(e) => {
+                          e.stopPropagation()
+                          toggleMute(video.id)
+                        }}
+                        className="absolute bottom-2 right-2 p-2 bg-black/50 hover:bg-black/70 rounded-full text-white transition-colors z-10"
+                        title={mutedVideos[video.id] ? "Click to unmute" : "Click to mute"}
+                      >
+                        {mutedVideos[video.id] ? (
+                          <svg
+                            xmlns="http://www.w3.org/2000/svg"
+                            width="20"
+                            height="20"
+                            viewBox="0 0 24 24"
+                            fill="none"
+                            stroke="currentColor"
+                            strokeWidth="2"
+                            strokeLinecap="round"
+                            strokeLinejoin="round"
+                          >
+                            <path d="M11 5L6 9H2v6h4l5 4V5z" />
+                            <line x1="23" y1="9" x2="17" y2="15" />
+                            <line x1="17" y1="9" x2="23" y2="15" />
+                          </svg>
+                        ) : (
+                          <svg
+                            xmlns="http://www.w3.org/2000/svg"
+                            width="20"
+                            height="20"
+                            viewBox="0 0 24 24"
+                            fill="none"
+                            stroke="currentColor"
+                            strokeWidth="2"
+                            strokeLinecap="round"
+                            strokeLinejoin="round"
+                          >
+                            <polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5" />
+                            <path d="M19.07 4.93a10 10 0 0 1 0 14.14M15.54 8.46a5 5 0 0 1 0 7.07" />
+                          </svg>
+                        )}
+                      </button>
+                    </div>
+                    <div className="p-6 text-center">
+                      <h3 className="text-lg font-bold group-hover:text-primary transition-colors">{video.name}</h3>
+                    </div>
                   </div>
-                </div>
-              ))}
+                ))}
+
+                {/* Sample Work Images */}
+                {sampleWork.map((work, i) => (
+                  <div
+                    key={`work-${i}`}
+                    className="bg-card border border-border rounded-xl overflow-hidden hover:border-primary transition-all duration-300 group flex-shrink-0 w-72 hover:shadow-lg hover:shadow-primary/10"
+                  >
+                    <div className="relative overflow-hidden h-64 bg-gradient-to-r from-primary/10 to-primary/5">
+                      <img
+                        src={work.image}
+                        alt={work.name}
+                        className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
+                        style={{ display: "block" }}
+                        onError={(e) => {
+                          console.error("Image load error:", work.image, e)
+                          const target = e.target as HTMLImageElement
+                          target.src = "/placeholder.svg"
+                        }}
+                        onLoad={() => {
+                          console.log("Image loaded:", work.image)
+                        }}
+                      />
+                    </div>
+                    <div className="p-6 text-center">
+                      <h3 className="text-lg font-bold group-hover:text-primary transition-colors">{work.name}</h3>
+                    </div>
+                  </div>
+                ))}
+              </div>
+            </div>
+            {/* Scroll indicator hint */}
+            <div className="text-center mt-4">
+              <p className="text-sm text-muted-foreground">← Scroll to see more machines, videos, and sample work →</p>
             </div>
           </div>
         </div>

@@ -31,8 +31,7 @@ export default function Home() {
                 <span className="text-primary ml-3">Printing</span>
               </h1>
               <p className="text-lg text-muted-foreground mb-8 leading-relaxed">
-                Printing Press brings 28+ years of collective expertise to every print. From ID cards to banners, we
-                deliver premium quality with precision and speed.
+                Printing Press brings 25+ years of collective expertise to every print. 
               </p>
 
               <div className="flex flex-col sm:flex-row gap-4">
@@ -54,16 +53,16 @@ export default function Home() {
               {/* Stats */}
               <div className="grid grid-cols-3 gap-6 mt-12">
                 <div>
-                  <p className="text-2xl font-bold text-primary">28+</p>
+                  <p className="text-2xl font-bold text-primary">25+</p>
                   <p className="text-xs text-muted-foreground">Years Experience</p>
                 </div>
                 <div>
-                  <p className="text-2xl font-bold text-primary">500+</p>
+                  <p className="text-2xl font-bold text-primary">300+</p>
                   <p className="text-xs text-muted-foreground">Happy Clients</p>
                 </div>
                 <div>
-                  <p className="text-2xl font-bold text-primary">24h</p>
-                  <p className="text-xs text-muted-foreground">Quick Turnaround</p>
+                  <p className="text-2xl font-bold text-primary">24/7</p>
+                  <p className="text-xs text-muted-foreground">For Request</p>
                 </div>
               </div>
             </div>
@@ -74,7 +73,7 @@ export default function Home() {
                 <div className="absolute inset-0 bg-gradient-to-r from-primary to-primary/50 rounded-2xl blur-2xl opacity-30 group-hover:opacity-50 transition-opacity" />
                 <div className="relative bg-gradient-to-br from-card to-secondary rounded-2xl p-8 border border-border overflow-hidden flex items-center justify-center min-h-96">
                   <Image
-                    src="/logo.png"
+                    src="/newlogo.png"
                     alt="PRINTVERSE Logo"
                     width={300}
                     height={400}
@@ -102,12 +101,12 @@ export default function Home() {
             {[
               {
                 icon: Zap,
-                title: "Lightning Fast",
-                description: "Get your prints ready in 24 hours. Same-day turnaround available for urgent orders.",
+                title: "Fast",
+                description: "Get your prints ready in Deadline check. ",
               },
               {
                 icon: Award,
-                title: "Premium Quality",
+                title: "Quality Checked",
                 description: "Professional processes ensure every print meets high quality standards.",
               },
               {
@@ -146,16 +145,16 @@ export default function Home() {
                 id: "brochure-printing",
               },
               {
-                title: "Banners",
-                description: "High-quality banner printing for all your promotional needs",
-                icon: "🎨",
-                id: "banners",
+                id: "calendars",
+                title: "Calendars",
+                icon: "📅",
+                description: "Custom calendar printing for offices and gifts",
               },
               {
-                title: "Identity Cards",
-                description: "Secure identity card printing with advanced features",
-                icon: "🆔",
-                id: "identity-cards",
+                id: "color-printing",
+                title: "Color Printing",
+                icon: "🌈",
+                description: "Vibrant full-color printing for maximum impact",
               },
             ].map((service, i) => (
               <Link key={i} href={`/services#${service.id}`} className="group">
@@ -192,7 +191,7 @@ export default function Home() {
           <div className="text-center mb-16">
             <h2 className="text-4xl font-bold mb-4">About <span className="text-primary">PRINTVERSE</span></h2>
             <p className="text-muted-foreground max-w-3xl mx-auto text-lg">
-              Premium printing solutions with 28+ years of collective expertise in the industry
+              Premium printing solutions with 25+ years of collective expertise in the industry
             </p>
           </div>
 
@@ -201,7 +200,7 @@ export default function Home() {
               <h3 className="text-3xl font-bold mb-6">Our Story</h3>
               <p className="text-lg text-muted-foreground mb-4 leading-relaxed">
                 At Printverse, we blend fresh ideas with decades of expertise. Though founded in 2025, our team brings
-                over 28 years of collective experience in the printing industry, ensuring top-quality results you can
+                over 25+ years of collective experience in the printing industry, ensuring top-quality results you can
                 trust.
               </p>
               <p className="text-lg text-muted-foreground mb-4 leading-relaxed">
@@ -213,20 +212,20 @@ export default function Home() {
                 solution for everything in print.
               </p>
 
-              <div className="grid grid-cols-3 gap-6 mt-8">
+              {/* <div className="grid grid-cols-3 gap-6 mt-8">
                 <div>
-                  <p className="text-3xl font-bold text-primary">28+</p>
+                  <p className="text-3xl font-bold text-primary">25+</p>
                   <p className="text-sm text-muted-foreground">Years Experience</p>
                 </div>
                 <div>
-                  <p className="text-3xl font-bold text-primary">500+</p>
+                  <p className="text-3xl font-bold text-primary">300+</p>
                   <p className="text-sm text-muted-foreground">Happy Clients</p>
                 </div>
                 <div>
-                  <p className="text-3xl font-bold text-primary">24h</p>
-                  <p className="text-sm text-muted-foreground">Quick Turnaround</p>
+                  <p className="text-3xl font-bold text-primary">24/7</p>
+                  <p className="text-sm text-muted-foreground">For Request</p>
                 </div>
-              </div>
+              </div> */}
 
               <div className="mt-6 p-4 bg-card border border-border rounded-lg">
                 <p className="text-sm text-muted-foreground">
@@ -248,7 +247,7 @@ export default function Home() {
                 <div className="absolute inset-0 bg-gradient-to-r from-primary to-primary/50 rounded-2xl blur-2xl opacity-30 group-hover:opacity-50 transition-opacity" />
                 <div className="relative bg-gradient-to-br from-card to-secondary rounded-2xl p-8 border border-border overflow-hidden">
                   <Image
-                    src="/logo.png"
+                    src="/newlogo.png"
                     alt="PRINTVERSE Logo"
                     width={400}
                     height={400}
@@ -265,7 +264,7 @@ export default function Home() {
               {
                 icon: Award,
                 title: "Quality Excellence",
-                description: "Every print meets international quality standards with zero compromise",
+                description: "Every print meets quality standards with zero compromise",
               },
               {
                 icon: Users,
@@ -280,12 +279,12 @@ export default function Home() {
               {
                 icon: Shield,
                 title: "Reliability",
-                description: "24-hour turnaround guaranteed with consistent quality delivery",
+                description: "guaranteed with consistent quality delivery",
               },
               {
                 icon: Cpu,
                 title: "Expertise",
-                description: "28+ years of printing experience backed by skilled professionals",
+                description: "25+ years of printing experience backed by skilled professionals",
               },
               {
                 icon: Gauge,

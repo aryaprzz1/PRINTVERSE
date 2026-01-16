@@ -11,7 +11,7 @@ const _geistMono = Geist_Mono({ subsets: ["latin"] })
 export const metadata: Metadata = {
   title: "PRINTVERSE - Premium Printing Services | Mumbai",
   description:
-    "Premium printing solutions with 28+ years of expertise. ID cards, banners, binding services, lamination & more. Quick 24-hour turnaround. Get a free quote!",
+    "Premium printing solutions with 25+ years of expertise. ID cards, banners, binding services, lamination & more. 24/7 for request. Get a free quote!",
   generator: "v0.app",
   icons: {
     icon: [

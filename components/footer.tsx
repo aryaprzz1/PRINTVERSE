@@ -12,10 +12,10 @@ export function Footer() {
           <div>
             <h3 className="text-lg font-bold mb-4">PRINTVERSE</h3>
             <p className="text-sm text-muted-foreground mb-4">
-              Premium printing solutions. 28+ years of collective expertise in quality printing.
+              Premium printing solutions. 25+ years of collective expertise in quality printing.
             </p>
-            <p className="text-xs text-muted-foreground">
-              <span className="font-semibold">GSTIN:</span> 27ABHFP1115D1ZO
+            <p className="text-xs font-bold text-primary border border-primary/30 px-3 py-2 rounded bg-primary/10 inline-block">
+              GSTIN: <span className="text-foreground">27ABHFP1115D1ZO</span>
             </p>
           </div>
 
@@ -51,18 +51,18 @@ export function Footer() {
             <h4 className="font-semibold mb-4">Services</h4>
             <ul className="space-y-2 text-sm">
               <li>
-                <Link href="/services#banners" className="hover:text-primary transition-colors">
-                  Banners
+                <Link href="/services#brochure-printing" className="hover:text-primary transition-colors">
+                  Brochure Printing
                 </Link>
               </li>
               <li>
-                <Link href="/services#identity-cards" className="hover:text-primary transition-colors">
-                  Identity Cards
+                <Link href="/services#calendars" className="hover:text-primary transition-colors">
+                  Calendars
                 </Link>
               </li>
               <li>
-                <Link href="/services#binding-services" className="hover:text-primary transition-colors">
-                  Binding Services
+                <Link href="/services#color-printing" className="hover:text-primary transition-colors">
+                  Color Printing
                 </Link>
               </li>
               <li>
@@ -70,6 +70,7 @@ export function Footer() {
                   Custom Printing
                 </Link>
               </li>
+              
             </ul>
           </div>
 
@@ -126,8 +127,11 @@ export function Footer() {
             <p className="text-xs text-muted-foreground mb-1">
               © 2025 PRINTVERSE. All rights reserved.
             </p>
-            <p className="text-xs text-muted-foreground">
-              GSTIN: 27ABHFP1115D1ZO | Website: printversemumbai.com
+            <p className="text-xs text-muted-foreground mb-1">
+              Website: printversemumbai.com
+            </p>
+            <p className="text-xs font-bold text-primary">
+              GSTIN: <span className="text-foreground">27ABHFP1115D1ZO</span>
             </p>
           </div>
         </div>

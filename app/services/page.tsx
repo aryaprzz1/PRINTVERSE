@@ -79,6 +79,18 @@ export default function Services() {
       icon: "🎟️",
       description: "Custom printed lanyards for badges and IDs",
     },
+    {
+      id: "lamination",
+      title: "Lamination",
+      icon: "🛡️",
+      description: "Professional lamination services for documents and prints",
+    },
+    {
+      id: "punching",
+      title: "Punching",
+      icon: "✂️",
+      description: "Precision punching services for documents and binders",
+    },
   ]
 
   return (
@@ -137,11 +149,11 @@ export default function Services() {
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
             {[
               {
-                title: "28+ Years Experience",
+                title: "25+ Years Experience",
                 desc: "Decades of printing expertise",
               },
               {
-                title: "24-Hour Turnaround",
+                title: "24/7 For Request",
                 desc: "Fast and reliable delivery",
               },
               {

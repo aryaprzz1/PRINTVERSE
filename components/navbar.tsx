@@ -61,14 +61,17 @@ export function Navbar() {
         }
       } else {
         // navigate to home and scroll to section
-        router.push("/")
-        // scroll after navigation completes
-        setTimeout(() => {
-          const element = document.getElementById(elementId)
-          if (element) {
-            element.scrollIntoView({ behavior: "smooth", block: "start" })
-          }
-        }, 100)
+        router.push("/").then(() => {
+          setTimeout(() => {
+            const element = document.getElementById(elementId)
+            if (element) {
+              element.scrollIntoView({ behavior: "smooth", block: "start" })
+            }
+          }, 300)
+        }).catch(() => {
+          // Fallback: use window.location if router fails
+          window.location.href = href
+        })
       }
     }
     setIsOpen(false)
@@ -105,6 +108,9 @@ export function Navbar() {
           </div>
 
           <div className="hidden md:flex items-center gap-4">
+            <div className="text-xs font-bold text-primary border border-primary/30 px-3 py-1 rounded bg-primary/10">
+              GSTIN: <span className="text-foreground">27ABHFP1115D1ZO</span>
+            </div>
             <button
               onClick={toggleDarkMode}
               className="p-2 hover:bg-card rounded-lg transition-colors text-foreground"
@@ -142,6 +148,11 @@ export function Navbar() {
                 {link.label}
               </a>
             ))}
+            <div className="my-4 p-3 bg-primary/10 border border-primary/30 rounded-lg">
+              <p className="text-xs font-bold text-primary">
+                GSTIN: <span className="text-foreground">27ABHFP1115D1ZO</span>
+              </p>
+            </div>
             <div className="flex items-center gap-2 py-2">
               <button onClick={toggleDarkMode} className="p-2 hover:bg-card rounded-lg transition-colors">
                 {isDark ? <Sun size={20} /> : <Moon size={20} />}
