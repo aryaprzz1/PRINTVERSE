@@ -1,6 +1,7 @@
 "use client"
 
 import Link from "next/link"
+import Image from "next/image"
 import { Mail, Phone, Linkedin } from "lucide-react"
 
 export function Footer() {
@@ -10,7 +11,16 @@ export function Footer() {
         <div className="grid grid-cols-1 md:grid-cols-4 gap-8 mb-8">
           {/* About */}
           <div>
-            <h3 className="text-lg font-bold mb-4">PRINTVERSE</h3>
+            <div className="flex items-center gap-2 mb-4">
+              <Image
+                src="/newlogo.png"
+                alt="PRINTVERSE Logo"
+                width={32}
+                height={32}
+                className="w-8 h-8 object-contain"
+              />
+              <h3 className="text-lg font-bold">PRINTVERSE</h3>
+            </div>
             <p className="text-sm text-muted-foreground mb-4">
               Premium printing solutions. 25+ years of collective expertise in quality printing.
             </p>
