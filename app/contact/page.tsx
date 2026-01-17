@@ -38,11 +38,34 @@ export default function Contact() {
     e.preventDefault()
     const newErrors: { [key: string]: string } = {}
 
-    const hasEmail = formData.email.trim().length > 0
-    const hasPhone = formData.phone.trim().length > 0
+    const email = formData.email.trim()
+    const phone = formData.phone.trim()
+    const hasEmail = email.length > 0
+    const hasPhone = phone.length > 0
 
+    // Validate that at least one contact method is provided
     if (!hasEmail && !hasPhone) {
-      newErrors.contact = "Please provide either an email or phone number"
+      newErrors.contact = "Please provide either a Gmail address or WhatsApp phone number"
+      setErrors(newErrors)
+      return
+    }
+
+    // Validate email format if provided
+    if (hasEmail) {
+      const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/
+      if (!emailRegex.test(email)) {
+        newErrors.email = "Please enter a valid email address"
+      } else if (!email.toLowerCase().endsWith("@gmail.com")) {
+        newErrors.email = "Please provide a Gmail address (ending with @gmail.com)"
+      }
+    }
+
+    // Validate phone format if provided (should be digits, may include +)
+    if (hasPhone) {
+      const phoneRegex = /^[\+]?[0-9\s\-\(\)]{10,}$/
+      if (!phoneRegex.test(phone.replace(/\s/g, ""))) {
+        newErrors.phone = "Please enter a valid phone number"
+      }
     }
 
     if (!formData.service) {
@@ -57,10 +80,27 @@ export default function Contact() {
     setLoading(true)
 
     try {
-      const whatsappMessage = `*New Quote Request from PRINTVERSE*\n\n📝 *Details:*\n${formData.email ? `*Email:* ${formData.email}\n` : ""}${formData.phone ? `*Phone:* ${formData.phone}\n` : ""}*Service:* ${formData.service}\n${formData.message ? `*Message:* ${formData.message}` : ""}`
-      const whatsappLink = `https://wa.me/919892397770?text=${encodeURIComponent(whatsappMessage)}`
+      const quotationMessage = `New Quote Request from PRINTVERSE\n\nDetails:\n${hasEmail ? `Email: ${email}\n` : ""}${hasPhone ? `Phone: ${phone}\n` : ""}Service: ${formData.service}\n${formData.message ? `Message: ${formData.message}` : ""}`
 
-      window.open(whatsappLink, "_blank")
+      // Route to Gmail if email is provided and is Gmail, otherwise use WhatsApp
+      if (hasEmail && email.toLowerCase().endsWith("@gmail.com")) {
+        // Send via Gmail
+        const subject = encodeURIComponent(`Quote Request - ${formData.service}`)
+        const body = encodeURIComponent(quotationMessage)
+        const gmailLink = `https://mail.google.com/mail/?view=cm&fs=1&to=printversemumbai@gmail.com&su=${subject}&body=${body}`
+        window.open(gmailLink, "_blank")
+      } else if (hasPhone) {
+        // Send via WhatsApp
+        const whatsappMessage = `*New Quote Request from PRINTVERSE*\n\n📝 *Details:*\n${hasEmail ? `*Email:* ${email}\n` : ""}*Phone:* ${phone}\n*Service:* ${formData.service}\n${formData.message ? `*Message:* ${formData.message}` : ""}`
+        const whatsappLink = `https://wa.me/919892397770?text=${encodeURIComponent(whatsappMessage)}`
+        window.open(whatsappLink, "_blank")
+      } else {
+        // Fallback: if email is not Gmail, still try to send via Gmail
+        const subject = encodeURIComponent(`Quote Request - ${formData.service}`)
+        const body = encodeURIComponent(quotationMessage)
+        const gmailLink = `https://mail.google.com/mail/?view=cm&fs=1&to=printversemumbai@gmail.com&su=${subject}&body=${body}`
+        window.open(gmailLink, "_blank")
+      }
 
       setFormData({ email: "", phone: "", service: "", message: "" })
       setSubmitStatus("success")
@@ -109,27 +149,33 @@ export default function Contact() {
 
             <form onSubmit={handleSubmit} className="space-y-6">
               <div>
-                <label className="block text-sm font-semibold mb-2">Email</label>
+                <label className="block text-sm font-semibold mb-2">Email (Gmail)</label>
                 <input
                   type="email"
                   name="email"
                   value={formData.email}
                   onChange={handleChange}
-                  className="w-full px-4 py-3 bg-card border border-border rounded-lg focus:border-primary focus:outline-none focus:ring-2 focus:ring-primary/20 transition-all"
-                  placeholder="your@email.com (or provide phone)"
+                  className={`w-full px-4 py-3 bg-card border rounded-lg focus:border-primary focus:outline-none focus:ring-2 focus:ring-primary/20 transition-all ${
+                    errors.email ? "border-red-500" : "border-border"
+                  }`}
+                  placeholder="yourname@gmail.com (for Gmail quote)"
                 />
+                {errors.email && <p className="text-red-500 text-sm mt-1">{errors.email}</p>}
               </div>
 
               <div>
-                <label className="block text-sm font-semibold mb-2">Phone Number</label>
+                <label className="block text-sm font-semibold mb-2">Phone Number (WhatsApp)</label>
                 <input
                   type="tel"
                   name="phone"
                   value={formData.phone}
                   onChange={handleChange}
-                  className="w-full px-4 py-3 bg-card border border-border rounded-lg focus:border-primary focus:outline-none focus:ring-2 focus:ring-primary/20 transition-all"
-                  placeholder="+91 XXXXX XXXXX (or provide email)"
+                  className={`w-full px-4 py-3 bg-card border rounded-lg focus:border-primary focus:outline-none focus:ring-2 focus:ring-primary/20 transition-all ${
+                    errors.phone ? "border-red-500" : "border-border"
+                  }`}
+                  placeholder="+91 XXXXX XXXXX (for WhatsApp quote)"
                 />
+                {errors.phone && <p className="text-red-500 text-sm mt-1">{errors.phone}</p>}
                 {errors.contact && <p className="text-red-500 text-sm mt-1">{errors.contact}</p>}
               </div>
 
@@ -300,7 +346,7 @@ export default function Contact() {
                 <p>
                   <span className="text-muted-foreground">Monday - Sunday:</span> 9:00 AM - 9:00 PM
                 </p>
-                <p className="text-xs text-primary pt-2">Emergency orders available 24/7</p>
+                <p className="text-xs text-primary pt-2">ON Request SUNDAY and NIGHTS available  </p>
               </div>
             </div>
           </div>

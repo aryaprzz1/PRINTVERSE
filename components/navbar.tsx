@@ -3,6 +3,7 @@
 import type React from "react"
 
 import Link from "next/link"
+import Image from "next/image"
 import { useState, useEffect } from "react"
 import { Menu, X, Moon, Sun } from "lucide-react"
 import { useRouter, usePathname } from "next/navigation"
@@ -82,11 +83,13 @@ export function Navbar() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center h-16">
           <Link href="/" className="flex items-center gap-2 group">
-            <div className="w-10 h-10 bg-gradient-to-br from-pink-500 via-yellow-400 to-blue-400 rounded-full flex items-center justify-center overflow-hidden p-0.5">
-              <div className="w-full h-full bg-background rounded-full flex items-center justify-center">
-                <span className="text-primary font-bold text-base">P</span>
-              </div>
-            </div>
+            <Image
+              src="/newlogo.png"
+              alt="PRINTVERSE Logo"
+              width={32}
+              height={32}
+              className="w-8 h-8 object-contain"
+            />
             <span className="text-xl font-bold group-hover:text-primary transition-colors duration-300">
               PRINTVERSE
             </span>

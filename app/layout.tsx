@@ -16,19 +16,31 @@ export const metadata: Metadata = {
   icons: {
     icon: [
       {
-        url: "/icon-light-32x32.png",
-        media: "(prefers-color-scheme: light)",
-      },
-      {
-        url: "/icon-dark-32x32.png",
-        media: "(prefers-color-scheme: dark)",
-      },
-      {
-        url: "/icon.svg",
-        type: "image/svg+xml",
+        url: "/newlogo.png",
+        type: "image/png",
       },
     ],
-    apple: "/apple-icon.png",
+    apple: "/newlogo.png",
+  },
+  openGraph: {
+    title: "PRINTVERSE - Premium Printing Services | Mumbai",
+    description:
+      "Premium printing solutions with 25+ years of expertise. ID cards, banners, binding services, lamination & more. 24/7 for request. Get a free quote!",
+    images: [
+      {
+        url: "/newlogo.png",
+        width: 1200,
+        height: 630,
+        alt: "PRINTVERSE Logo",
+      },
+    ],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "PRINTVERSE - Premium Printing Services | Mumbai",
+    description:
+      "Premium printing solutions with 25+ years of expertise. ID cards, banners, binding services, lamination & more. 24/7 for request. Get a free quote!",
+    images: ["/newlogo.png"],
   },
 }
 
